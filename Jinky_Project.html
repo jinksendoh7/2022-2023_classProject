@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Product meta ================================================== -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Worldwide&#39;s #1 Online Perfume Store at Wholesale Prices">
+	<meta property="og:description"
+		content="Buy your signature scent at the leading and most reputed online fragrance store at warehouse prices and save big on all perfumes and colognes.">
+	<meta property="og:url" content="https://studiofragrance.ca/">
+	<meta property="og:site_name" content="StudioFragrance.ca">
+	<title>
+		Studio Fragrance &ndash; Worldwide's #1 Perfume Sale at Wholesale Prices
+	</title>
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<header role="banner">
+			<div class="container">
+				<div class="header-top">
+					<div class="row">
+						<div class="column-header">
+							<a href="#">
+								<span><img src="./img/top-bnr-img.jpg" alt="banner services" class="free-img"></span>
+							</a>
+						</div>
+						<div class="column-header">
+							<a href="#">
+								<img src="./img/perfume_logo.JPG" alt="Perfume Online" class="logo-img">
+
+							</a>
+						</div>
+						<div class="column-header">
+							<div class="right-groups header">
+								<a href="#" class="signin-text">
+									<span class="text">Log In/Sign Up</span>
+								</a>
+
+								<a href="#" title="My Wishlists" class="icon-text-heart">
+									<span><i class="glyphicon glyphicon-heart"></i></span>
+								</a>
+
+								<a href="#" title="My Cart" class="icon-text-cart">
+									<span class="glyphicon glyphicon-shopping-cart signin-text"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+
+
+
+	<span id="dateArea">Date/Time</span>
+	<br />
+	<span style="float: right;">
+		Currency:
+		<img class="currencyFlag" />
+		<select id="currencySelector">
+			<option selected value="CAD">CAD</option>
+			<option value="USD">USD</option>
+			<option value="GBP">GBP</option>
+		</select>
+	</span>
+	<br />
+
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Women's Perfume</a></li>
+			<li><a href="#">Men's Perfume</a></li>
+			<li><a href="#">Bestsellers</a></li>
+			<li><a href="#">Gift sets</a></li>
+			<li><a href="#">Sale</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+
+
+
+	<!-- carousel display  -->
+	<div id="wrapper"></div>
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+			</ol>
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="./img/carousel/APRIL-12-CASHBACK-TODAY.gif" alt="Cashback Now" style="width:100%;">
+				</div>
+
+				<div class="item">
+					<img src="./img/carousel/APRIL-SALE-NOW-ON.gif" alt="Month Sale" style="width:100%;">
+				</div>
+
+				<div class="item">
+					<img src="./img/carousel/Sniffit-Web-Banner.png" alt="Sniffit Banner" style="width:100%;">
+				</div>
+
+				<div class="item">
+					<img src="./img/carousel/number_one.jpg" alt="Canada's Number One Online Store" style="width:100%;">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+	<br>
+	<div>
+		<div class="widget-title">
+			<hr class="perpendicular-line-top"><span class="box-title">PERFUMES AVAILABLE IN STORE</span>
+			<hr class="perpendicular-line-bottom">
+		</div>
+	</div>
+	<div>
+		<fieldset>
+			<label>Filter by Category: </label><select id="displayFilter" onchange="displayItemsFilter();">
+				<option>All</option>
+			</select>
+			<br />
+			<div id="inventoryOutput"></div>
+
+		</fieldset>
+	</div>
+
+
+	<br>
+	<div class="container">
+		<fieldset>
+			<legend>Your Cart</legend>
+			<br>
+			<div id="cartOutput"></div>
+			<br>
+			<div id="cartCheckout"></div>
+		</fieldset>
+	</div>
+
+	<br>
+	<div class="container">
+		<fieldset>
+			<legend>Review an Item</legend>
+			<p>Product ID: <select id="reviewId">
+					<option>Choose a Product ID</option>
+				</select>&nbsp;<span id="reviewIdMsg"></span></p>
+			<p>Review: <textarea type="text" id="reviewDesc"></textarea></p>
+			<p>Rating: <select id="reviewNum">
+					<option>Choose a number</option>
+				</select>&nbsp;<span id="addRatingValidationMessage"></span></p>
+			<p><input id="reviewbtn" type="button" value="Review" /></p>
+		</fieldset>
+	</div>
+
+
+	</div>
+	<div class="footer">
+		<div class="row">
+			<div class="column">
+				<p class="footer-text">About Us&nbsp;</p>
+				<p class="footer-text"><span>Buy your signature scent at
+						the leading and most reputed online fragrance store at warehouse prices and save big on
+						all perfumes and colognes.</span></p>
+			</div>
+			<div class="column">
+				<p class="footer-text">Follow Us</p>
+				<div>
+					<ul>
+						<li class="footer-li"><a href="#"><span class="fa fa-twitter"></span>
+							</a></li>
+						<li class="footer-li"><a href="#"><span class="fa fa-facebook"></span>
+							</a></li>
+						<li class="footer-li"><a href="#"><span class="fa fa-pinterest"></span>
+							</a></li>
+						<li class="footer-li"><a href="#"><span class="fa fa-instagram"></span>
+							</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="column">
+				<p class="footer-text">Join our mailing list</p>
+				<form>
+					<div><input type="email" name="email" class="footer-text" value=""
+							placeholder="Enter your email here*" required="" pattern="^.+@.+\.[a-zA-Z]{2,63}$"
+							maxlength="250" aria-label="Enter your email here*"></div>
+					<div><button class="footer-btn"><span class="footer-text">Subscribe Now</span></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer-end">
+			<p class="footer-text">©Fragance Studio 2022. Front End Development Final Project proudly created by
+				<span><a href="mailto:j_castillote@fanshaweonline.ca">Jinky Castillote</a></span>
+			</p>
+		</div>
+
+	</div>
+
+
+
+	<!-- Javascript -->
+	<script>
+
+		//object constructors
+		//Used for structuring the item data in your online store
+		function StoreItem(id, name, price, qty, maxPerCustomer, category, brand, costOfShipping, reviews = [], description, image) {
+			this.id = id;                       //string
+			this.name = name;                   //string
+			this.price = price;                 //float
+			this.qty = qty;                     //number
+			this.maxPerCustomer = maxPerCustomer;  //number
+			this.category = category;            //string
+			this.brand = brand;						//string
+			this.costOfShipping = costOfShipping;        //float
+			this.reviews = reviews;             //array
+			this.description = description;     //string
+			this.image = image;                 //string
+		}
+
+		//Used for storing relevant item data specifically for items in the Cart
+		function Cart(id, price, quantity, shipping) {
+			this.id = id;                   //string
+			this.price = price;             //number
+			this.quantity = quantity;       //number
+			this.shipping = shipping;       //number
+		}
+
+		//Used for storing a review and rating
+		function ReviewItem(review, rating) {
+			this.review = review;       //string
+			this.rating = rating;       //number
+		}
+
+		//global variables
+		var storeArr = [];		//array for the store item objects
+		var cartArr = [];		//array for the cart item objects
+		var currencyIndicator = "";
+		var symbol = "";		//dynamic symbol display
+		var exrate = 1;
+
+		//add objects
+		var storeObj1 = new StoreItem("PID001", "Jasmin Noir Edp", 249.99, 10, 3, "Women", "Elizabeth Arden", 12.5, [], "Amber Floral fragrance for women", "img/PID001.JPG");
+		var storeObj2 = new StoreItem("PID002", "Wave 2", 12.95, 8, 2, "Women", "Hollister", 2, [], "Liven up your senses with fruity, floral and oriental fragrance of Wave 2 for Her from the design house of Hollister. Introduced in 2017, this feminine fragrance is gorgeous as much as it is enticing. It opens with fruity mix of notes from Peach and Mandarin Orange along with Coconut Nectar for a seductive start.", "img/PID002.JPG");
+		var storeObj3 = new StoreItem("PID003", "Intense", 77.95, 13, 7, "Men", "Jimmy Choo", 3.8, [], "Entwining fresh, spicy and herbal tones, the Jimmy Choo Intense Eau de Toilette Spray is for the bold and classy man.", "img/PID003.JPG");
+		var storeObj4 = new StoreItem("PID004", "Magnetism", 43.95, 15, 8, "Women", "Escada", 4, [], "Sweet, juicy pineapple provides a fun, flirty opening, mixing with tangy black currant for an edgy appeal. At the heart, florals steal the show, as fresh magnolia and powdery iris dance in the air around you.", "img/PID004.JPG");
+		var storeObj5 = new StoreItem("PID005", "Ginger Musk", 103.95, 9, 3, "Unisex", "Montale", 5.19, [], "An unusual and irresistible harmony of fresh ginger, black currant, red berries and white musk.", "img/PID005.JPG");
+		var storeObj6 = new StoreItem("PID006", "Bright Crystal Absolu", 68.35, 15, 5, "Women", "Versace", 3.42, [], "The bright, fresh aroma of yuzu balances the sweeter notes to keep you smelling fresh, and delivers just what you want from a sequel—a dramatic performance that leaves you anticipating more.", "img/PID006.JPG");
+		var storeObj7 = new StoreItem("PID007", "Love In Paris", 55.95, 11, 7, "Women", "Nina Ricci", 2.78, [], "Women's fragrance combines juicy fruit notes with a flowery blend that exudes femininity.", "img/PID007.JPG");
+		var storeObj8 = new StoreItem("PID008", "Figue", 69.95, 18, 6, "Unisex", "Molinard", 3.49, [], "The floral fruity fragrance of Figue Eau de Parfum is a smooth and irresistible fragrance for women and men.", "img/PID008.JPG");
+		var storeObj9 = new StoreItem("PID009", "Girl", 21.55, 11, 3, "Women", "Guess", 2, [], "Feel deliciously sweet and feminine when you add Guess Girl to your daily primping routine. This light, inviting scent turns heads without overwhelming the senses, making it perfect for everyday wear.", "img/PID009.JPG");
+		var storeObj10 = new StoreItem("PID010", "In2u", 25.75, 7, 4, "Men", "Calvin Klein", 2.5, [], "Masculine fragrance brings citrusy scents alive on a woody base.", "img/PID010.JPG");
+		var storeObj11 = new StoreItem("PID011", "Aqua Rush", 19.95, 10, 4, "Men", "Nautica", 2, [], "The energetic scent opens with brisk top notes of sea breeze accord and yuzu splash with a twist of spicy-sweet coriander.", "img/PID011.JPG");
+		var storeObj12 = new StoreItem("PID012", "F Black", 48.95, 9, 3, "Unisex", "Salvatore Ferragamo", 2.47, [], "A heart of black pepper and spicy, woody coriander moves to a close with base notes including warm, powdery-sweet tonka bean. Add this fragrance to spice up your wardrobe for evening events, special occasions, and fall and winter wear.", "img/PID012.JPG");
+		var storeObj13 = new StoreItem("PID013", "Seductive", 37.95, 20, 5, "Men", "Guess", 3, [], "Perfect for the charismatic man, this sensual fragrance finishes with a woody aroma of sandalwood to captivate and intrigue those around you.", "img/PID013.JPG");
+		var storeObj14 = new StoreItem("PID014", "Rhythm", 59.95, 18, 9, "Men", "Burberry Brit", 4.6, [], "This scent features an energizing blend of accords that leaves you feeling confidently fresh and excitingly masculine.", "img/PID014.JPG");
+		var storeObj15 = new StoreItem("PID015", "Princess", 39.95, 15, 5, "Women", "Vera Wang", 5, [], "Featuring sweet notes of apple and apricot for a dainty texture that's suitable for a busy office or an afternoon at the movies.", "img/PID015.JPG");
+		storeArr.push(storeObj1, storeObj2, storeObj3, storeObj4, storeObj5, storeObj6, storeObj7, storeObj8, storeObj9, storeObj10, storeObj11, storeObj12, storeObj13, storeObj14, storeObj15);
+		console.log(storeArr)
+
+
+		//Display the current Day/Time to screen
+		function refreshTime() {
+			const timeDisplay = document.getElementById("dateArea");
+			const dateString = new Date().toLocaleString();
+			const formattedString = dateString.replace(", ", " - ");
+			timeDisplay.textContent = dateString;
+		}
+		setInterval(refreshTime, 1000); //real datetime
+
+		//display currency
+		let currencyDDL = document.getElementById("currencySelector");
+		currencyDDL.addEventListener('change', function () {
+			currencySelection();
+		});
+
+		//add event listener to the ids
+		let btnReview = document.getElementById("reviewbtn");
+		btnReview.className = "button-review";
+		btnReview.addEventListener('click', function () {
+			addReview();
+		});
+
+		var currArr = [
+			["img/cur/cad.jpg", "img/cur/usd.jpg", "img/cur/gbp.jpg"],	//flagArr
+			["CAD", "USD", "GBP"],										//currency
+			["$", "$", "£"],											//symbolArr
+			[1, 0.80, 0.61]												//exrateArr
+		];
+
+
+		//currency selection
+		function currencySelection() {
+			currencyIndicator = ""; 		//return currency indicator  to null;
+			symbol = "";
+
+			var currFlag = document.getElementsByClassName("currencyFlag");
+			var currSelected = document.querySelector('#currencySelector').value;
+			console.log(currSelected);
+			if (currArr[1].indexOf(currSelected) === 1) {
+				currencyIndicator = "(USD)";
+			}
+
+			symbol = currArr[2][currArr[1].indexOf(currSelected)];
+			exrate = currArr[3][currArr[1].indexOf(currSelected)];
+			var image = document.getElementsByClassName("currencyFlag");
+			image[0].setAttribute("src", currArr[0][currArr[1].indexOf(currSelected)]);
+			image[0].setAttribute("style", "width:25px;");
+
+			displayItems();
+			displayCart();
+		};
+
+		var tempStoreArr = [];
+		function displayItems() {
+			//used to clear div innerhtml since table create is called again on every currency onchange
+			document.getElementById("inventoryOutput").innerHTML = "";
+			var inventoryOutputDiv = document.getElementById("inventoryOutput");
+			var row = document.createElement('div');
+			row.className = "row";
+			inventoryOutputDiv.appendChild(row);
+			var ul = document.createElement('ul');
+
+			tempStoreArr = [];
+			if (tempArray === undefined || tempArray.length == 0) { //check if tempArray has data
+				tempStoreArr = storeArr;
+			}
+			else {
+				tempStoreArr = tempArray;
+			}
+
+			console.log(tempArray)
+			console.log(tempStoreArr)
+			for (var j = 0; j < tempStoreArr.length; j++) {
+				var li = document.createElement('li');
+				li.className = "columns-5";
+				ul.appendChild(li);
+
+				var img = document.createElement('img');
+				img.src = "./img/" + tempStoreArr[j].id + ".JPG";
+				img.className = "img-items-li";
+				li.appendChild(img);
+
+				//item details
+				var p = document.createElement('p');
+				p.style = "text-align: center";
+				li.appendChild(p);
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Product ID: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				p.appendChild(span);
+				span.appendChild(document.createTextNode(tempStoreArr[j].id));
+
+				var br = document.createElement('br');
+				p.appendChild(br);
+
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Product Name: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				label.appendChild(span);
+				span.appendChild(document.createTextNode(tempStoreArr[j].name));
+
+				var br = document.createElement('br');
+				p.appendChild(br);
+
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Brand: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				label.appendChild(span);
+				span.appendChild(document.createTextNode(tempStoreArr[j].brand));
+
+				var br = document.createElement('br');
+				p.appendChild(br);
+
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Product Price: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				label.appendChild(span);
+				span.appendChild(document.createTextNode(symbol + (exrate * tempStoreArr[j].price).toFixed(2) + " " + currencyIndicator));
+
+				var br = document.createElement('br');
+				p.appendChild(br);
+
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Quantity In Stock: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				label.appendChild(span);
+				span.appendChild(document.createTextNode(tempStoreArr[j].qty));
+
+				var br = document.createElement('br');
+				p.appendChild(br);
+
+				var label = document.createElement('label');
+				p.appendChild(label);
+				label.appendChild(document.createTextNode("Max Per Customer: "));
+				var span = document.createElement('span');
+				span.className = "span-items-li";
+				label.appendChild(span);
+				span.appendChild(document.createTextNode(tempStoreArr[j].maxPerCustomer));
+
+				var divv = document.createElement('div');
+				divv.className = "buttons-divv";
+				li.appendChild(divv);
+
+				//view item details button
+				var viewBtn = document.createElement('input');
+				viewBtn.id = tempStoreArr[j].id + "_view";
+				viewBtn.type = "button";
+				viewBtn.className = "button-view";
+				viewBtn.value = "Item Details";
+				viewBtn.onclick = (function () { viewDetails(this.id); });
+				divv.appendChild(viewBtn);
+
+				//add item button
+				var addBtn = document.createElement('input');
+				addBtn.id = tempStoreArr[j].id;
+				addBtn.type = "button";
+				addBtn.className = "button-remove-add";
+				addBtn.value = "Add to Cart";
+				addBtn.style.margin = "5px";
+				addBtn.onclick = (function () { var getQty = Number(prompt("Enter order quantity:")); addToCart(this.id, getQty); });
+				divv.appendChild(addBtn);
+
+				//remove item button
+				var remBtn = document.createElement('input');
+				remBtn.id = tempStoreArr[j].id + "_remove";
+				remBtn.type = "button";
+				remBtn.className = "button-remove-add";
+				remBtn.value = "Remove Item";
+				remBtn.onclick = (function () { var getQty = Number(prompt("Enter quantity to remove:")); if (Number.isNaN(getQty)) { alert("You must enter number!"); return; }; removeToCart(this.id, getQty); });
+				divv.appendChild(remBtn);
+
+			}
+			row.appendChild(ul);
+		}
+
+
+		//when page loads, display all items
+		currencySelection();					//dynamic currency above
+		displayItems();						//show store items
+		addCategory(); 						//store items dropdown menu list
+		displayCart();						//display user's cart
+
+		var temp = []; //array for item id only to check if exists in cart
+		function addToCart(idItem, qty) {
+			//validate if qty input has value
+			if (qty <= 0) {
+				alert("Quantity must be greater than 0.");
+			}
+			else {
+				var foundID = false; // assuming we don't find it 
+				var foundIndexInCart = "";
+				if (cartArr !== undefined || cartArr.length !== 0) { //cart array is empty
+					for (var x = 0; x < cartArr.length; x++) {
+						if (cartArr[x].id.indexOf(idItem) !== -1) { //check if in the cart already
+							foundIndexInCart = temp.indexOf(idItem); //get index of item to be updated
+							break;
+						}
+					}
+				}
+
+				//console.log(foundIndexInCart);
+				for (var i = 0; i < storeArr.length; i++) { //search items in store
+					foundID = false;
+					//item added already exists in cart
+					if (foundIndexInCart.length != 0) {
+						if (idItem === storeArr[i].id) {
+							foundID = true;
+							cartArr[foundIndexInCart].id = idItem;
+							cartArr[foundIndexInCart].price = storeArr[i].price;
+
+
+							//validate qty input exceeds total quantity of each item in store
+							if ((qty > storeArr[i].qty)) {
+								alert(`Not enough products in the shop.`);
+							}
+
+							//validate total qty in cart not exceed max per customer
+							if (cartArr[foundIndexInCart].quantity >= storeArr[i].maxPerCustomer) {
+								alert("You've reached the maximum quantity per customer!\nSorry, quantity not added to cart.");
+								console.log("Item not removed!");
+							}
+							else {
+								var tempqty = qty + cartArr[foundIndexInCart].quantity;
+								if (tempqty > storeArr[i].maxPerCustomer) {
+									alert("You've reached the maximum quantity per customer!\nSorry, quantity not added to cart.");
+									console.log("Item not removed!");
+								}
+								else {
+									cartArr[foundIndexInCart].quantity = qty + cartArr[foundIndexInCart].quantity;
+									cartArr[foundIndexInCart].shipping = storeArr[i].costOfShipping;
+									storeArr[i].qty = storeArr[i].qty - qty;
+									console.log("Update items in cart!");
+									displayItems();
+									displayCart();
+									ddlReviewProd();
+								}
+							}
+							break;
+						}
+					}
+					//item not exists in the cart
+					else {
+						if (storeArr[i].id === idItem) { //item added not yet in cart
+							foundID = true;
+
+							//validate max quantity allowed
+							if (qty > storeArr[i].maxPerCustomer) {
+								alert(`You exceed max quantity allowed per customer.\nMax quantity of ${storeArr[i].maxPerCustomer} will be added to your cart`);
+								qty = storeArr[i].maxPerCustomer;
+							}
+
+							var cartObj = new Cart(idItem, storeArr[i].price, qty, storeArr[i].costOfShipping);
+							cartArr.push(cartObj);
+							temp.push(idItem);
+							storeArr[i].qty = storeArr[i].qty - qty;
+							console.log("Not yet in Cart!");
+							displayItems();
+							displayCart();
+							ddlReviewProd();
+							break;
+						}
+					}
+				}
+
+				if (foundID === false) { //tracking id not found
+					alert(`Tracking Number: ${idItem} is not found!`);
+				}
+				console.log(cartArr);
+			}
+
+		}
+
+		function removeToCart(idItem, qty) {
+			var prodId = idItem.slice(0, idItem.indexOf("_")); //slice id name to get the correct id
+			if (qty <= 0) {
+				alert("Quantity must be greater than 0.");
+			}
+			else {
+				var foundID = false; // assuming we don't find it 
+				var foundIndexInCart = "";
+				if (cartArr !== undefined || cartArr.length !== 0) { //cart array is empty
+					for (var x = 0; x < cartArr.length; x++) {
+						if (cartArr[x].id.indexOf(prodId) !== -1) { //check if in the cart already
+							foundIndexInCart = temp.indexOf(prodId); //get index of item to be updated
+							break;
+						}
+					}
+				}
+
+				var getProdName = "";
+				for (var i = 0; i < storeArr.length; i++) { //search items in store
+					foundID = false;
+
+					if (prodId === storeArr[i].id) {
+						getProdName = storeArr[i].name; //used for display in alert
+					}
+					//item added already exists in cart
+					if (foundIndexInCart.length != 0) {
+						if (prodId === storeArr[i].id) {
+							foundID = true;
+
+							//validate total qty in cart not item qty in cart
+							if (qty > cartArr[foundIndexInCart].quantity) {
+								alert("Quantity removed is greater than you have in cart.\nSorry, quantity not removed to cart.");
+								console.log("Item not removed!");
+							}
+							else {
+								temp.splice(0, foundIndexInCart + 1); //also remove id in the tempArray
+								cartArr[foundIndexInCart].quantity = cartArr[foundIndexInCart].quantity - qty;
+								cartArr[foundIndexInCart].shipping = storeArr[i].costOfShipping * cartArr[foundIndexInCart].quantity;
+								storeArr[i].qty = storeArr[i].qty + qty;
+
+								if (cartArr[foundIndexInCart].quantity === 0) { //this is for items with 0 qty in cart (total delete)
+									cartArr.splice(foundIndexInCart, 1); // find the index in array and delete
+								}
+								console.log("Update items in cart!");
+								displayItems();
+								displayCart();
+								ddlReviewProd();
+							}
+							break;
+						}
+					}
+				}
+
+				if (foundID === false) { //tracking id not found
+					alert(`You don't have ${getProdName} in your cart!`);
+				}
+				console.log(cartArr);
+			}
+		}
+
+		function viewDetails(idItem) {
+			var prodId = idItem.slice(0, idItem.indexOf("_")); //slice id name to get the correct id
+			//console.log("View Details " + prodId);
+			var reviewText = "";
+			var sumRating = 0;
+			var aveRating = "";
+			var x = 1;
+
+			for (var i = 0; i < storeArr.length; i++) {
+				if (prodId === storeArr[i].id) {
+					//format reviews array for display
+					do {
+						if (storeArr[i].reviews.length !== 0) { //validate since there are items with no reviews yet
+							reviewText += "Review " + x + ": " + storeArr[i].reviews[x - 1].review + "\n";
+							sumRating += storeArr[i].reviews[x - 1].rating;
+							x++;
+						}
+
+						if (sumRating === 0) {
+							aveRating = 0;
+						}
+						else {
+							aveRating = sumRating / storeArr[i].reviews.length;
+						}
+
+					}
+					while (x <= storeArr[i].reviews.length);
+
+					//convert price & shipping depending on currency selected
+					var convPrice = storeArr[i].price * exrate;
+					var convShipping = storeArr[i].costOfShipping * exrate;
+
+					//display details
+					alert(`Item details:\nId: ${storeArr[i].id}\nItem Name: ${storeArr[i].name}\nCategory: ${storeArr[i].category}\nBrand: ${storeArr[i].brand}
+\nMaximum Order Per Customer: ${storeArr[i].maxPerCustomer}\nQuantity: ${storeArr[i].qty}\nPrice:  ${symbol} ${convPrice.toFixed(2)} ${currencyIndicator}\nShipping Cost: ${symbol} ${convShipping.toFixed(2)} ${currencyIndicator}
+\nDescription:\n${storeArr[i].description}\n\nReviews:\n ${reviewText}
+\nAverage Rating: ${aveRating.toFixed(2)}`)
+					break;
+				}
+			}
+		}
+
+
+
+		function addCategory() {
+			var ddl = document.getElementById("displayFilter");
+			var menuCat = []; // strings of unique categories 
+			for (var i = 0; i < storeArr.length; i++) {
+				var foundCat = false; // assuming we don't find it 
+
+				for (var j = 0; j < storeArr.length; j++) {
+					if (storeArr[i].category === menuCat[j]) {
+						foundCat = true;
+					}
+				}
+				if (foundCat === false) {
+					menuCat.push(storeArr[i].category); //adding to our array
+				}
+			}
+
+			for (var k = 0; k < menuCat.length; k++) {
+				// Make element 
+				var tempOp = document.createElement("option");
+				tempOp.innerHTML = menuCat[k];
+				tempOp.value = menuCat[k];
+
+				//Append to the parent 
+				ddl.appendChild(tempOp);
+			}
+		};
+
+		var tempArray = [];
+		function displayItemsFilter() {
+			//what the user selected 
+			var statusSelected = document.getElementById("displayFilter").value;
+			tempArray = [];
+
+
+			var displayParent = document.getElementById("inventoryOutput");
+			displayParent.innerHTML = "";
+
+			//find all the entries with the appropriate status selected
+			if (statusSelected === "All") {
+				tempArray = storeArr;
+			}
+			else { //filter based on selected status
+				for (var i = 0; i < storeArr.length; i++) {
+					if (storeArr[i].category === statusSelected) {
+						tempArray.push(storeArr[i]);
+					}
+				}
+			}
+			console.log(tempArray);
+
+			displayItems();
+
+
+		}
+
+
+		function cartFormat(calculateCartResults) { //sets format display for cart
+			console.log(calculateCartResults)
+			var cartOutput = document.getElementById('cartOutput');
+			var linebreak = document.createElement("hr");
+			cartOutput.appendChild(linebreak);
+
+			document.getElementById('cartCheckout').innerHTML = "";
+			var checkoutDetails = document.getElementById('cartCheckout');
+			let itemSub = document.createTextNode("Items Subtotal: $" + calculateCartResults[0].toFixed(2) + " " + currencyIndicator);
+			checkoutDetails.appendChild(itemSub);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+
+			let estShipping = document.createTextNode("Estimated Shipping: $" + calculateCartResults[1].toFixed(2) + " " + currencyIndicator);
+			checkoutDetails.appendChild(estShipping);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+
+			let subTot = document.createTextNode("Subtotal: $" + calculateCartResults[2].toFixed(2) + " " + currencyIndicator);
+			checkoutDetails.appendChild(subTot);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+
+			let estTax = document.createTextNode("Estimated Tax: $" + calculateCartResults[3].toFixed(2) + " " + currencyIndicator);
+			checkoutDetails.appendChild(estTax);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+
+			let orderTot = document.createTextNode("Order Total: $" + calculateCartResults[4].toFixed(2) + " " + currencyIndicator);
+			checkoutDetails.appendChild(orderTot);
+			var linebreak = document.createElement("br");
+			checkoutDetails.appendChild(linebreak);
+		}
+
+
+		function displayCart() { //function for cartCheckout
+			document.getElementById("cartOutput").innerHTML = "";
+
+			//cart is empty
+			if (cartArr === undefined || cartArr.length == 0) {
+				document.getElementById("cartOutput").innerHTML = "No Items in Cart. Add Items to cart.";
+
+				cartFormat(cartTotals(cartArr));
+			}
+			else {
+				var myTableDiv = document.getElementById("cartOutput");
+				var table = document.createElement('TABLE');
+				table.border = '1';
+				table.className = "styled-table";
+
+				// Create an empty <thead> element and add it to the table:
+				var tableHead = document.createElement('THEAD');
+				table.appendChild(tableHead);
+
+				var theadArr = ["ID", "Price", "Quantity", "Subtotal"];
+				var th = document.createElement('TR');
+				//designing thead
+				th.style.fontWeight = "bold";
+				th.style.textAlign = "center";
+				th.style.fontSize = "15px";
+
+				tableHead.appendChild(th);
+				for (var j = 0; j < 4; j++) {
+					var td = document.createElement('TD');
+					td.width = "auto";
+					td.appendChild(document.createTextNode(theadArr[j]));
+					th.appendChild(td);
+				}
+
+				var tableBody = document.createElement('TBODY');
+				table.appendChild(tableBody);
+
+
+				console.log("exrate " + exrate);
+				//add rows in tbody
+				for (var i = 0; i < cartArr.length; i++) {
+					var tr = document.createElement('TR');
+					tr.style.textAlign = "center";
+					tableBody.appendChild(tr);
+
+					for (var j = 0; j < 4; j++) {
+						var td = document.createElement('TD');
+						td.style.padding = "10px";
+						td.width = '100';
+						if (theadArr[j] === "ID") {
+							td.appendChild(document.createTextNode(cartArr[i].id));
+						} else if (theadArr[j] === "Price") {
+							var calcPrice = (cartArr[i].price * exrate);
+							td.appendChild(document.createTextNode("$" + calcPrice.toFixed(2) + " " + currencyIndicator))
+						} else if (theadArr[j] === "Quantity") {
+							td.appendChild(document.createTextNode(cartArr[i].quantity))
+						} else if (theadArr[j] === "Subtotal") {
+							var calcSubtotal = (cartArr[i].price * exrate) * cartArr[i].quantity;
+							td.appendChild(document.createTextNode("$" + calcSubtotal.toFixed(2) + " " + currencyIndicator));
+						}
+
+						//td.appendChild(document.createTextNode(storeArr[i].image));
+						tr.appendChild(td);
+					}
+				}
+				myTableDiv.appendChild(table);
+
+				cartTotals(cartArr);						//calling calculated cart computation
+				cartFormat(cartTotals(cartArr)); 			//calling table format for cart
+
+			}
+		}
+
+
+		function cartTotals(cartArr) { //function for cart calculation
+			//create variable to display in calculated cart details
+			var cartIntSubtotal = 0, cartAllShipping = 0;
+			const TAX = 0.13;
+
+			if (cartArr === undefined || cartArr.length === 0) {
+				cartIntSubtotal = 0;
+				cartAllShipping = 0;
+			}
+			else {
+				for (var x = 0; x < cartArr.length; x++) {
+					cartIntSubtotal += (cartArr[x].price * cartArr[x].quantity * exrate);
+					cartAllShipping = cartArr[x].shipping * exrate;
+				}
+			}
+			var cartFinSubtotal = cartAllShipping + cartIntSubtotal;
+			var cartTax = cartFinSubtotal * TAX;
+			var cartOverallTotal = cartFinSubtotal + cartTax;
+
+			return ([cartIntSubtotal, cartAllShipping, cartFinSubtotal, cartTax, cartOverallTotal]);
+		}
+
+		//reviews section///////////////
+		function ddlReviewProd() { //function for adding dropdown for product in cart used for reviews
+			var ddlReviewProduct = document.getElementById("reviewId");
+			ddlReviewProduct.length = 0;
+
+			if (cartArr.length === 0) { //if cart is empty
+				var opt = "Choose a Product ID";
+				var el = document.createElement("option");
+				el.textContent = opt;
+				el.value = opt;
+				ddlReviewProduct.appendChild(el);
+			}
+
+
+			for (var i = 0; i < cartArr.length; i++) { //dropdown for ProductID reviews portion
+				var opt = cartArr[i].id;
+				var el = document.createElement("option");
+				el.textContent = opt;
+				el.value = opt;
+				ddlReviewProduct.appendChild(el);
+			}
+
+			ddlReviewProduct.setAttribute("onchange", "prodDetails()");
+		}
+
+		function prodDetails() { //reviews show product item
+			var revProd = document.getElementById("reviewId").value;
+			var reviewMsg = document.getElementById("reviewIdMsg");
+			for (var x = 0; x < storeArr.length; x++) {
+				if (storeArr[x].id === revProd) {
+					reviewMsg.innerHTML = "Perfume: " + storeArr[x].name;
+					reviewMsg.style = "color: #d90a36";
+					break;
+				}
+			}
+		}
+
+		var select = document.getElementById("reviewNum");
+		var showDescrip = document.getElementById("addRatingValidationMessage");
+		showDescrip.style = "color: #d90a36";
+
+		var options = [1, 2, 3, 4, 5];
+		var optionsDescription = ["Bad Smell!", "Not really satisfied with the product", "Neutral", "Authentic Smell", "Scent exceeds my expectation!"];
+
+		for (var i = 0; i < options.length; i++) {
+			var opt = options[i];
+			var el = document.createElement("option");
+			el.textContent = opt;
+			el.value = opt;
+			select.appendChild(el);
+		}
+
+		select.setAttribute("onchange", "ReviewDetails()"); //for span of review rating description
+
+		function ReviewDetails() { //reviews description
+			for (var x = 0; x < optionsDescription.length; x++) {
+				if (Number(select.value) === options[x]) {
+					document.getElementById("addRatingValidationMessage").innerHTML = optionsDescription[x];
+					console.log(optionsDescription[x]);
+					break;
+				}
+			}
+		}
+
+		function addReview() { //function for adding reviews
+			var revProd = document.getElementById("reviewId").value;
+			var revReview = document.getElementById("reviewDesc").value;
+			var revRating = Number(document.getElementById("reviewNum").value);
+
+			for (var i = 0; i < storeArr.length; i++) { //search items in store
+				if (storeArr[i].id.indexOf(revProd) !== -1) {
+					var buyerReview = new ReviewItem(revReview, revRating);
+					storeArr[i].reviews.push(buyerReview);
+					console.log("Updated storeArr reviews!");
+					alert(`Thank you for your review on product ${storeArr[i].brand} ${storeArr[i].name} !`);
+
+					//clear fields
+					document.getElementById("reviewId").value = "";
+					document.getElementById("reviewIdMsg").innerHTML = "";
+					document.getElementById("reviewDesc").value = "";
+					document.getElementById("reviewNum").value = "";
+					document.getElementById("addRatingValidationMessage").innerHTML = "";
+					break;
+				}
+
+			}
+		}
+
+
+
+	</script>
+
+</body>
+
+</html>
